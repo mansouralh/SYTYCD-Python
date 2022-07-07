@@ -21,28 +21,26 @@ def print_menu():
     Print the items in the menu dictionary.
     """
     print("Our menu:")
+    cupcake_menu=menu
     for item in cupcake_menu:
-        print("- \"%s\" (KD %s)" % (item, menu[item]))
-
-
-
+        print(item)
 
 def print_originals():
     """
     Print the original flavor cupcakes.
     """
-    print("Our original flavor cupcakes (KD %s each):" % original_price)
+    print("Our original flavor cupcakes (KD %s each):"%int(original_price))
     for item in original_flavors:
-    print("- \"%s\"" % item)
+        print(item)
 
 
 def print_signatures():
     """
     Print the signature flavor cupcakes.
     """
-    print("Our signature flavor cupcake (KD %s each):" % signature_price)
+    print("Our signature flavor cupcake (KD %s each):" %signature_price)
     for item in signature_flavors:
-        print("- \"%s\"" % item)
+        print(item)
 
 
 def is_valid_order(order):
@@ -50,6 +48,7 @@ def is_valid_order(order):
     Check if an order exists in the shop.
     """
     if order in menu:
+        
         return True
     elif order in original_flavors:
         return True
@@ -65,7 +64,8 @@ def get_order():
     """
     order_list = []
     order = input("What's your order? (Enter the exact spelling of the item you want. Type 'Exit' to end your order.)\n")
-    while order.lowercase() != "exit":
+    
+    while order != "exit":
         if is_valid_order(order):
             order_list.append(order)
         order = input()
